@@ -1,4 +1,6 @@
 let express = require('express');
+const dotenv = require('dotenv');
+dotenv.config();
 let app = express();
 
 console.log('Hello World');
@@ -8,7 +10,10 @@ console.log('Hello World');
 //   res.sendFile(`${__dirname}/public/index.html`);
 // });
 app.get('/json', (req, res) => {
-  res.json({ message: 'Hello json' });
+  let message =
+    process.env.MESSAGE_STYLE === 'uppercase' ? 'HELLO JSON' : 'Hello json';
+
+  res.json({ message });
 });
 // app.get('/', (req, res) => {
 //   res.send('Hello Express');
