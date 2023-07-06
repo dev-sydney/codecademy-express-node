@@ -1,10 +1,12 @@
+var bodyParser = require('body-parser');
 let express = require('express');
 const dotenv = require('dotenv');
 dotenv.config();
 let app = express();
 
 console.log('Hello World');
-
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 // app.use(express.static('public'));
 // app.get('/', (req, res) => {
 //   res.sendFile(`${__dirname}/public/index.html`);
@@ -30,22 +32,22 @@ console.log('Hello World');
 //   }
 // );
 
-app
-  .route('/name')
-  .get((req, res, next) => {
-    const { first, last } = req.query;
+// app
+//   .route('/name')
+//   .get((req, res, next) => {
+//     const { first, last } = req.query;
 
-    res.json({
-      name: `${first} ${last}`,
-    });
-  })
-  .post((req, res, next) => {
-    const { first, last } = req.query;
+//     res.json({
+//       name: `${first} ${last}`,
+//     });
+//   })
+//   .post((req, res, next) => {
+//     const { first, last } = req.query;
 
-    res.json({
-      name: `${first} ${last}`,
-    });
-  });
+//     res.json({
+//       name: `${first} ${last}`,
+//     });
+//   });
 // app.get('/:word/echo', (req, res, next) => {
 //   res.json({ echo: req.params.word });
 // });
