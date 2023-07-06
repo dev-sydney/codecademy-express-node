@@ -19,14 +19,18 @@ console.log('Hello World');
 //   res.send('Hello Express');
 // });
 
-app.get(
-  '/now',
-  (req, res, next) => {
-    req.time = new Date().toString();
-    next();
-  },
-  (req, res) => {
-    res.json({ time: req.time });
-  }
-);
+// app.get(
+//   '/now',
+//   (req, res, next) => {
+//     req.time = new Date().toString();
+//     next();
+//   },
+//   (req, res) => {
+//     res.json({ time: req.time });
+//   }
+// );
+
+app.get('/:word/echo', (req, res, next) => {
+  res.json({ echo: req.params.word });
+});
 module.exports = app;
