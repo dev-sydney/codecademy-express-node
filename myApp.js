@@ -8,7 +8,7 @@ console.log('Hello World');
 //   res.sendFile(`${__dirname}/public/index.html`);
 // });
 app.get('/json', (req, res) => {
-  res.status(200).json({ message: 'Hello there' });
+  res.json({ message: 'Hello json' });
 });
 // app.get('/', (req, res) => {
 //   res.send('Hello Express');
