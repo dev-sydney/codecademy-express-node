@@ -30,13 +30,22 @@ console.log('Hello World');
 //   }
 // );
 
-app.route('/name').post((req, res, next) => {
-  const { first, last } = req.query;
+app
+  .route('/name')
+  .get((req, res, next) => {
+    const { first, last } = req.query;
 
-  res.json({
-    name: `${first} ${last}`,
+    res.json({
+      name: `${first} ${last}`,
+    });
+  })
+  .post((req, res, next) => {
+    const { first, last } = req.query;
+
+    res.json({
+      name: `${first} ${last}`,
+    });
   });
-});
 // app.get('/:word/echo', (req, res, next) => {
 //   res.json({ echo: req.params.word });
 // });
