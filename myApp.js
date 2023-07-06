@@ -30,7 +30,14 @@ console.log('Hello World');
 //   }
 // );
 
-app.get('/:word/echo', (req, res, next) => {
-  res.json({ echo: req.params.word });
+app.route('/name').post((req, res, next) => {
+  const { first, last } = req.query;
+
+  res.json({
+    name: `${first} ${last}`,
+  });
 });
+// app.get('/:word/echo', (req, res, next) => {
+//   res.json({ echo: req.params.word });
+// });
 module.exports = app;
